@@ -1,8 +1,12 @@
 # Setup fzf
 # Auto-completion
 # ---------------
-[[ $- == *i* ]] && source "/usr/local/opt/fzf/shell/completion.zsh" 2> /dev/null
+if [[ $- == *i* ]]; then
+  FZF_PATH=$(brew --prefix fzf)/shell
+  source "$FZF_PATH/completion.zsh" 2> /dev/null
+fi
 
 # Key bindings
 # ------------
-source "/usr/local/opt/fzf/shell/key-bindings.zsh"
+FZF_PATH=$(brew --prefix fzf)/shell
+source "$FZF_PATH/key-bindings.zsh"
